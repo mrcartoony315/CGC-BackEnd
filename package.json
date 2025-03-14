@@ -11,5 +11,8 @@
     "url": "\"git + https://github.com/mrcartoony315/CGC-BackEnd.git\""
   },
   "author": "Sufyaanuddin",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
 }

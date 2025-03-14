@@ -10,21 +10,17 @@ const books = [
 ];
 
 const server = http.createServer((req, res) => {
-  // Set default response headers
   res.setHeader("Content-Type", "application/json");
 
-  // Parse the URL path for routing
   const url = req.url;
   
   if (url.includes("welcome")) {
     res.statusCode = 200;
     res.write(JSON.stringify({ message: "Welcome to my Server!" }));
   } else if (url.includes("books")) {
-    // Extract book ID from URL (optional)
     const bookId = url.split("/").pop();
     
     if (bookId) {
-      // Find the book by ID using .find() for better performance
       const book = books.find(b => b.id === parseInt(bookId));
       
       if (book) {
@@ -35,7 +31,7 @@ const server = http.createServer((req, res) => {
         res.write(JSON.stringify({ error: "Book Not Found" }));
       }
     } else {
-      // Return all books if no specific ID is provided
+      
       res.statusCode = 200;
       res.write(JSON.stringify(books));
     }
